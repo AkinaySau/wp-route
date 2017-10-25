@@ -35,12 +35,12 @@ final class Route {
 					}
 					else
 					{
-						$error_message = __( 'Controller $s%1: method $s%2 is not exist', 'sau_system' );
+						$error_message = __( 'Controller %1$s: method %2$s is not exist', 'sau_system' );
 						throw new Exception( sprintf( $error_message, SHelper::textStrong( $construct[0] ), SHelper::textStrong( $construct[1] ) ) );
 					}
 					if ( ! $response instanceof Response )
 					{
-						$error_message = __( '$s%1.$s%2 is not return Response', 'sau_system' );
+						$error_message = __( '%1$s.%2$s is not return Response', 'sau_system' );
 						throw new Exception( sprintf( $error_message, $construct[0], $construct[1] ) );
 					}
 					else
