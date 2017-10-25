@@ -9,16 +9,7 @@
 namespace Sau\WP\Theme\SystemFrontendPages;
 
 use Exception;
-use function print_r;
 use Sau\Lib\Action;
-use function array_key_exists;
-use function array_search;
-use function explode;
-use function get_stylesheet_directory;
-use function method_exists;
-use function set_query_var;
-use function sprintf;
-use function wp_die;
 
 final class Route {
 	private static $routes = [];
@@ -45,11 +36,12 @@ final class Route {
 					else
 					{
 						$error_message = __( 'Controller $s%1: method $s%2 is not exist', 'sau_system' );
-						throw new Exception( sprintf( $error_message, SHelper::textStrong( $controller[0] ), SHelper::textStrong( $controller[1] ) ) );
+						throw new Exception( sprintf( $error_message, SHelper::textStrong( $construct[0] ), SHelper::textStrong( $construct[1] ) ) );
 					}
 					if ( ! $response instanceof Response )
 					{
-						throw new Exception( __( 'Controller is not return Response', 'sau_system' ) );
+						$error_message = __( '$s%1.$s%2 is not return Response', 'sau_system' );
+						throw new Exception( sprintf( $error_message, $construct[0], $construct[1] ) );
 					}
 					else
 					{
@@ -61,7 +53,7 @@ final class Route {
 
 					}
 				}
-				catch ( Exception$exception )
+				catch ( Exception $exception )
 				{
 					wp_die( $exception->getMessage() );
 				}
