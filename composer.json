@@ -9,7 +9,6 @@
 		"system"
 	],
 	"homepage": "https://github.com/AkinaySau/wp-route",
-	"minimum-stability": "stable",
 	"license": "MIT",
 	"version": "1.0.0",
 	"authors": [
