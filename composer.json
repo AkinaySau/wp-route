@@ -1,0 +1,35 @@
+{
+	"name": "sau/wp_route",
+	"description": "Simple route and mvc for WordPress)",
+	"keywords": [
+		"wp",
+		"route",
+		"template",
+		"sau",
+		"system"
+	],
+	"homepage": "https://github.com/AkinaySau/wp-route",
+	"minimum-stability": "stable",
+	"license": "MIT",
+	"version": "1.0.0",
+	"authors": [
+		{
+			"name": "Akinay Sau",
+			"email": "akinay.sau@gmail.com",
+			"homepage": "http://a-sau.ru",
+			"role": "Developer"
+		}
+	],
+	"require": {
+		"php": ">=7.0",
+		"sau/library": "1.*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Sau\\WP\\Theme\\SystemFrontendPages\\": "src"
+		},
+		"files": [
+			"functions.php"
+		]
+	}
+}
