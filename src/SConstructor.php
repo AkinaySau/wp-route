@@ -8,7 +8,15 @@
 
 namespace Sau\WP\Theme\SystemFrontendPages;
 
+use Sau\Lib\Filter;
 
 class SConstructor {
-
+	/**
+	 * @param string $title Taking this var for change title in page
+	 */
+	private function title( string $title ) {
+		Filter::preGetDocumentTitle( function () use ( $title ) {
+			return $title;
+		} );
+	}
 }

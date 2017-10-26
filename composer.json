@@ -10,7 +10,7 @@
 	],
 	"homepage": "https://github.com/AkinaySau/wp-route",
 	"license": "MIT",
-	"version": "1.0.4",
+	"version": "1.0.5",
 	"authors": [
 		{
 			"name": "Akinay Sau",
@@ -21,7 +21,7 @@
 	],
 	"require": {
 		"php": ">=7.0",
-		"sau/library": "1.*"
+		"sau/library": ">=1.0.3"
 	},
 	"autoload": {
 		"psr-4": {
