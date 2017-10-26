@@ -14,7 +14,7 @@ class SConstructor {
 	/**
 	 * @param string $title Taking this var for change title in page
 	 */
-	private function title( string $title ) {
+	protected function title( string $title ) {
 		Filter::preGetDocumentTitle( function () use ( $title ) {
 			return $title;
 		} );
