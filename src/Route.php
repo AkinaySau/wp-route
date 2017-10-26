@@ -10,6 +10,7 @@ namespace Sau\WP\Theme\SystemFrontendPages;
 
 use Exception;
 use Sau\Lib\Action;
+use function array_key_exists;
 
 final class Route {
 	private static $routes = [];
@@ -92,6 +93,15 @@ final class Route {
 			}
 		} );
 
+	}
+
+	static function get( $name ) {
+		if ( array_key_exists( $name, self::$routes ) )
+		{
+			return self::$routes[$name];
+		}
+
+		return false;
 	}
 
 }
