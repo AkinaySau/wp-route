@@ -21,9 +21,9 @@ class Response {
 	 * @param string $template
 	 * @param array  $data
 	 */
-	function __construct( array $data = [], string $template = '' ) {
+	function __construct( string $template = '', array $data = [] ) {
 		$this->data = $data;
-		$template   = get_stylesheet_directory() .DIRECTORY_SEPARATOR. $template;
+		$template   = get_stylesheet_directory() . DIRECTORY_SEPARATOR . $template;
 		if ( file_exists( $template ) )
 		{
 			$this->template = $template;
