@@ -8,6 +8,7 @@
 
 namespace Sau\WP\Theme\SimpleRouter;
 
+use Sau\Lib\Action;
 use Sau\Lib\Filter;
 
 /**
