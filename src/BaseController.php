@@ -38,8 +38,10 @@ abstract class BaseController {
 	 * @param string $title Taking this var for change title in page
 	 */
 	protected function title( string $title ) {
-		Filter::preGetDocumentTitle( function () use ( $title ) {
-			return $title;
+		Action::init( function () use ( $title ) {
+			Filter::preGetDocumentTitle( function () use ( $title ) {
+				return $title;
+			} );
 		} );
 	}
 }
