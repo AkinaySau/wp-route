@@ -10,7 +10,7 @@ use FastRoute\RouteCollector;
 use function FastRoute\simpleDispatcher;
 use Sau\Lib\Action;
 use Sau\WP\Theme\SimpleRouter\Response;
-use Sau\WP\Theme\SimpleRouter\SConstructor;
+use Sau\WP\Theme\SimpleRouter\BaseController;
 use Sau\WP\Theme\SimpleRouter\SHelper;
 
 Action::afterSetupTheme( function () {
@@ -40,8 +40,8 @@ Action::afterSetupTheme( function () {
 			if ( file_exists( $file = get_stylesheet_directory() . '/controllers/' . $handler[ 'controller' ] . '.php' ) ) {
 				include $file;
 				$controller = new $handler[ 'controller' ];
-				if ( ! $controller instanceof SConstructor ) {
-					$error_message = 'Controller "%s" is not instance of SConstructor';
+				if ( ! $controller instanceof BaseController ) {
+					$error_message = 'Controller "%s" is not instance of BaseController';
 					throw new Exception( sprintf( $error_message, $handler[ 'controller' ] ) );
 				}
 			} else {
