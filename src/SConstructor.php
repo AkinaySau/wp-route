@@ -6,11 +6,11 @@
  * Time: 12:06
  */
 
-namespace Sau\WP\Theme\SystemFrontendPages;
+namespace Sau\WP\Theme\SimpleRouter;
 
 use Sau\Lib\Filter;
 
-class SConstructor {
+abstract class SConstructor {
 	/**
 	 * @param string $title Taking this var for change title in page
 	 */

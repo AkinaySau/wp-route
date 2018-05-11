@@ -6,10 +6,11 @@
  * Time: 11:38
  */
 
-namespace Sau\WP\Theme\SystemFrontendPages;
+namespace Sau\WP\Theme\SimpleRouter;
 
 
 use const DIRECTORY_SEPARATOR;
+use Exception;
 
 class Response {
 	private $template;
@@ -20,16 +21,17 @@ class Response {
 	 *
 	 * @param string $template
 	 * @param array  $data
+	 *
+	 * @throws Exception
 	 */
 	function __construct( string $template = '', array $data = [] ) {
 		$this->data = $data;
 		$template   = get_stylesheet_directory() . DIRECTORY_SEPARATOR . $template;
-		if ( file_exists( $template ) )
-		{
+		if ( file_exists( $template ) ) {
 			$this->template = $template;
+		} else {
+			throw new Exception( $template . ' is not exist' );
 		}
-
-		return false;
 	}
 
 	public function __toString() {

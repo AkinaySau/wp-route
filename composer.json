@@ -1,34 +1,35 @@
 {
-	"name": "sau/wp_route",
-	"description": "Simple route and mvc for WordPress)",
-	"keywords": [
-		"wp",
-		"route",
-		"template",
-		"sau",
-		"system"
-	],
-	"homepage": "https://github.com/AkinaySau/wp-route",
-	"license": "MIT",
-	"version": "1.0.8",
-	"authors": [
-		{
-			"name": "Akinay Sau",
-			"email": "akinay.sau@gmail.com",
-			"homepage": "http://a-sau.ru",
-			"role": "Developer"
-		}
-	],
-	"require": {
-		"php": ">=7.0",
-		"sau/library": ">=1.0.3"
-	},
-	"autoload": {
-		"psr-4": {
-			"Sau\\WP\\Theme\\SystemFrontendPages\\": "src"
-		},
-		"files": [
-			"functions.php"
-		]
-	}
+  "name": "sau/wp_route",
+  "description": "Simple route and mvc for WordPress)",
+  "keywords": [
+    "wp",
+    "route",
+    "template",
+    "sau",
+    "system"
+  ],
+  "homepage": "https://github.com/AkinaySau/wp-route",
+  "license": "MIT",
+  "version": "2.0.0",
+  "authors": [
+    {
+      "name": "Akinay Sau",
+      "email": "akinay.sau@gmail.com",
+      "homepage": "http://a-sau.ru",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.0",
+    "sau/library": "1.0.*",
+    "nikic/fast-route": "1.3.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Sau\\WP\\Theme\\SimpleRouter\\": "src"
+    },
+    "files": [
+      "init.php"
+    ]
+  }
 }

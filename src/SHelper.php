@@ -6,7 +6,7 @@
  * Time: 10:52
  */
 
-namespace Sau\WP\Theme\SystemFrontendPages;
+namespace Sau\WP\Theme\SimpleRouter;
 
 class SHelper {
 	static function textStrong( string $text ) {
