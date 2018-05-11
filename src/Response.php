@@ -12,6 +12,10 @@ namespace Sau\WP\Theme\SimpleRouter;
 use const DIRECTORY_SEPARATOR;
 use Exception;
 
+/**
+ * Class Response
+ * @package Sau\WP\Theme\SimpleRouter
+ */
 class Response {
 	private $template;
 	private $data;

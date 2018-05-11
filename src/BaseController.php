@@ -10,7 +10,24 @@ namespace Sau\WP\Theme\SimpleRouter;
 
 use Sau\Lib\Filter;
 
-abstract class SConstructor {
+/**
+ * Class BaseController
+ * @package Sau\WP\Theme\SimpleRouter
+ */
+abstract class BaseController {
+	protected static $data;
+
+	public function __construct( $data = [] ) {
+		self::$data = $data;
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public static function getData() {
+		return self::$data;
+	}
+
 	/**
 	 * @param string $title Taking this var for change title in page
 	 */

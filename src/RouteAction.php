@@ -11,6 +11,10 @@ namespace Sau\WP\Theme\SimpleRouter;
 
 use Sau\Lib\Base\BaseAction;
 
+/**
+ * Class RouteAction
+ * @package Sau\WP\Theme\SimpleRouter
+ */
 class RouteAction extends BaseAction {
 	/**
 	 * Hook for Route
