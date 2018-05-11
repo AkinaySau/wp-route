@@ -17,6 +17,12 @@ use Sau\Lib\Filter;
 abstract class BaseController {
 	protected static $data;
 
+	protected function setStatus( $status ) {
+		add_action( 'wp', function () use ( $status ) {
+			status_header( $status );
+		} );
+	}
+
 	public function __construct( $data = [] ) {
 		self::$data = $data;
 	}
