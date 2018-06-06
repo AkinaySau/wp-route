@@ -16,7 +16,8 @@ use Sau\Lib\Filter;
  * @package Sau\WP\Theme\SimpleRouter
  */
 abstract class BaseController {
-	protected static $data;
+	protected $data;
+
 
 	protected function setStatus( $status ) {
 		add_action( 'wp', function () use ( $status ) {
@@ -24,14 +25,17 @@ abstract class BaseController {
 		} );
 	}
 
-	public function __construct( $data = [] ) {
+	/**
+	 * @param array $data
+	 */
+	public function setData( array $data ) {
 		self::$data = $data;
 	}
 
 	/**
 	 * @return mixed
 	 */
-	public static function getData() {
+	public function getData() {
 		return self::$data;
 	}
 
