@@ -29,14 +29,14 @@ abstract class BaseController {
 	 * @param array $data
 	 */
 	public function setData( array $data ) {
-		self::$data = $data;
+		$this->data = $data;
 	}
 
 	/**
 	 * @return mixed
 	 */
 	public function getData() {
-		return self::$data;
+		return $this->data;
 	}
 
 	/**
