@@ -52,22 +52,29 @@ Action::afterSetupTheme( function () {
 				$error_message = 'Controller "%s" is not instance of BaseController';
 				throw new Exception( sprintf( $error_message, $handler[ 'controller' ] ) );
 			}
-			$controller->setData($vars);
+			$controller->setData( $vars );
 			//---------------------------------//
-			if ( method_exists( $controller, $handler[ 'method' ] ) ) {
-				$response = $controller->{$handler[ 'method' ]}( $vars );
-			} else {
-				$error_message = 'Controller %1$s: method %2$s is not exist';
-				throw new Exception( sprintf( $error_message, $handler[ 'controller' ], $handler[ 'method' ] ) );
-			}
+			add_action( 'template_redirect', function () use ( $controller, $handler, $vars ) {
+				if ( method_exists( $controller, $handler[ 'method' ] ) ) {
+					$response = $controller->{$handler[ 'method' ]}( $vars );
+				} else {
+					$error_message = 'Controller %1$s: method %2$s is not exist';
+					throw new Exception( sprintf( $error_message, $handler[ 'controller' ], $handler[ 'method' ] ) );
+				}
 
-			if ( ! $response instanceof BaseResponse ) {
-				$error_message = '%1$s.%2$s is not return WPResponse';
-				throw new Exception( sprintf( $error_message, $handler[ 'controller' ], $handler[ 'method' ] ) );
-			} else {
-				$response->setupData();
-				$response->response();
-			}
+				if ( ! $response instanceof BaseResponse ) {
+					$error_message = '%1$s.%2$s is not return WPResponse';
+					throw new Exception( sprintf( $error_message, $handler[ 'controller' ], $handler[ 'method' ] ) );
+				} else {
+					$response->setupData();
+					//---------------------------------//
+					$response->setStatus( $controller->getStatus() );
+					status_header( $response->getStatus() );
+					//---------------------------------//
+					$response->response();
+				}
+			} );
+
 			break;
 	}
 } );

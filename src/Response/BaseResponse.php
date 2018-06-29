@@ -10,9 +10,10 @@ namespace Sau\WP\Theme\SimpleRouter\Response;
 
 
 abstract class BaseResponse {
-	protected $data;
+	protected $data   = [];
+	protected $status = 200;
 
-	final public function __construct( array $data ) {
+	public function __construct( array $data ) {
 		$this->data = $data;
 	}
 
@@ -21,5 +22,19 @@ abstract class BaseResponse {
 	function setupData() {
 		global $sau_system;
 		$sau_system = $this->data;
+	}
+
+	/**
+	 * @param int $status
+	 */
+	public function setStatus( int $status ) {
+		$this->status = $status;
+	}
+
+	/**
+	 * @return int
+	 */
+	public function getStatus(): int {
+		return $this->status;
 	}
 }

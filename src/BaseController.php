@@ -8,7 +8,6 @@
 
 namespace Sau\WP\Theme\SimpleRouter;
 
-use Sau\Lib\Action;
 use Sau\Lib\Filter;
 
 /**
@@ -17,12 +16,20 @@ use Sau\Lib\Filter;
  */
 abstract class BaseController {
 	protected $data;
+	protected $status = 200;
 
+	/**
+	 * @param int $status
+	 */
+	public function setStatus( int $status ) {
+		$this->status = $status;
+	}
 
-	protected function setStatus( $status ) {
-		add_action( 'wp', function () use ( $status ) {
-			status_header( $status );
-		} );
+	/**
+	 * @return int
+	 */
+	public function getStatus(): int {
+		return $this->status;
 	}
 
 	/**
@@ -36,17 +43,15 @@ abstract class BaseController {
 	 * @return mixed
 	 */
 	public function getData() {
-		return $this->data;
+		return self::$data;
 	}
 
 	/**
 	 * @param string $title Taking this var for change title in page
 	 */
 	protected function title( string $title ) {
-		Action::init( function () use ( $title ) {
-			Filter::preGetDocumentTitle( function () use ( $title ) {
-				return $title;
-			} );
+		Filter::preGetDocumentTitle( function () use ( $title ) {
+			return $title;
 		} );
 	}
 }
